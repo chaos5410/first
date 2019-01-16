@@ -1,0 +1,178 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html>
+   <head>
+   	<meta charset="utf-8">
+   	<meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" href="{% static 'style2.css' %}">
+    <!-- Start: injected by AdGuard -->
+<script src="//local.adguard.com/adguard-ajax-api/injections/content-script.js?ts=1547616292.966989&amp;sb=0&amp;domain=www.coroflot.com&amp;mask=103" type="text/javascript" nonce="6572EAE5FAD44F98BB7B63EB13EA9717"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts/Adguard Assistant?ts=1547616294.334422" type="text/javascript" nonce="6572EAE5FAD44F98BB7B63EB13EA9717"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts/Web of Trust?ts=1547616294.334422" type="text/javascript" nonce="6572EAE5FAD44F98BB7B63EB13EA9717"></script>
+<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts/Adguard Popup Blocker?ts=1547616294.334422" type="text/javascript" nonce="6572EAE5FAD44F98BB7B63EB13EA9717"></script>
+<!-- End: injected by AdGuard -->
+
+   </head>
+   <body>
+   	<header class="wrapper">
+      <nav>
+   		<div class="rotate"><h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" class="bounce drop-shadow" height="70" width="140"></a></h1></div>
+         
+            
+            <ul>
+               {% if user.is_authenticated %}
+               <li><a href="/">Home</a></li>
+               <li><a href="/articles/">Articles</a></li>
+               <li><a href="/about/">About</a></li>
+               <li><a href="/contacts/email">Contact Us</a></li>
+               <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
+               <li>&nbsp</li>
+               <li><form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                     {% csrf_token %}
+                     <button type="submit" class="right-side-buton">Logout</button>
+                  </form>
+               </li>
+               {% else %}
+               <li><a href="/">Home</a></li>
+               <li><a href="/about/">About</a></li>
+               
+               <li><a href="/articles/">Articles</a></li>
+               <li><a href="/contacts/email">Contact Us</a></li>
+               <li>&nbsp</li>
+               <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
+               <li><a href="{% url 'accounts:login' %}">Login</a></li>
+               <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+               
+               {% endif %}
+            </ul>
+         </nav>
+         <script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("wrapper").style.top = "0";
+  } else {
+    document.getElementById("wrapper").style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+      </header>
+      <video playsinline autoplay muted loop id="myVideo" width="100%">
+  <source src="static/videob.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+<div class="textover" width="100%">
+  <h1 class="springy-text">The Outworker</h1>
+  <p>Welcome to The Outworker a freelance platform to provide you best and quality work with the help of Python-Django.</p>
+  <p>I am an emerging python developer please contribute to make it better.</p>
+  <p>Contact me at info@theoutworker.com</p>
+      		<p>INNOVATE | CREATE</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+
+<h1 class="springy-text">Gallery</h1>
+<br>
+<p class="photos">
+    <img src="static/dark/dark1.jpeg"/ style="width:100px;height:100">
+    <img src="static/dark/dark2.jpg"/ width="100" height="100"> 
+    <img src="static/dark/dark3.jpeg"/ width="100" height="100"> 
+    <img src="static/dark/dark4.jpg"/ width="100" height="100"> 
+    <img src="static/dark/dark5.jpg"/ width="100" height="100"> 
+    <img src="static/dark/dark6.jpg"/ style="width:100px;height:100">
+    <img src="static/dark/dark7.png"/ width="100" height="100"> 
+    <img src="static/dark/dark8.jpg"/ width="100" height="100"> 
+    <img src="static/dark/dark9.jpeg"/ width="100" height="100"> 
+    <img src="static/dark/dark10.png"/ width="100" height="100"> 
+    <img src="static/dark/dark11.png"/ style="width:100px;height:100">
+    <img src="static/dark/dark16.gif"/ width="100" height="100"> 
+    <img src="static/dark/dark13.gif"/ width="100" height="100"> 
+    <img src="static/dark/dark14.gif"/ width="100" height="100"> 
+    <img src="static/dark/dark15.gif"/ width="100" height="100"> 
+    
+</p>
+<!-- particles.js container -->
+<div id="particles-js">
+	<h1 class="springy-text">WHAT I DO :<br>I provide best and cheap work anywhere you find<br> because creating websites is my passion.</h1>
+  
+</div>
+</body>
+
+<!-- scripts -->
+<script type="text/javascript" src="static/particles.js"></script>
+
+<script type="text/javascript" src="static/app.js"></script>
+
+<!-- stats.js -->
+<script src="static/stats.js"></script>
+
+<script>
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+</script>
+
+<canvas id="canvas"></canvas>
+<h1 class="anywhere">Click Anywhere</h1>
+<script src="static/bubbles.js"></script>
+</div>
+</body>
+<footer>
+ <div class="footer">
+  <h2>The Outworker</h2>
+  <li class="lf"><a href="accounts/login" type="button">Login</a></li>
+  <img src="static/logo.png" width="200" height="80" class="logo">
+  <br>
+  <ul class="fnav">
+  <li><a href="/">Home</a></li>
+  <li><a href="about">About</a></li>
+  
+  <li><a href="accounts/signup">SignUp</a></li>
+  <li><a href="articles">Articles</a></li>
+  <li><a href="contacts/email">Contact Us</a></li>
+</ul>
+
+   
+         <p>copyright@ The Outworker 2018 - All Rights Reserved | Terms & Conditions | Privacy Policy</p>
+  <p>Created by: Amit Kumar</p>
+  <p>Contact information: <a href="mailto:info@theouworker.com">
+  info@theoutworker.com</a></p>
+</div>
+</footer>
+</div>
+</html>
+{% block content %}
+{% endblock %}
+

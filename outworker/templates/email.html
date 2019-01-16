@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<h1 class="springy-text">Contact Us</h1>
+<form class="site-form" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="form-actions">
+      <input type="submit" value="Submit">
+    </div>
+</form>
+<script src="/static/slugify.js"></script>
+
+{% endblock %}

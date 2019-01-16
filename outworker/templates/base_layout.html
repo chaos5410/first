@@ -1,0 +1,57 @@
+{% load static from staticfiles %}
+
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+   	<meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link rel="stylesheet" href="{% static 'style.css' %}">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+   </head>
+   <body>
+   	<header class="wrapper">
+   		<div class="rotate"><h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" class="bounce drop-shadow" height="70" width="140"></a></h1></div>
+         <nav>
+            
+            <ul>
+               {% if user.is_authenticated %}
+               <li><a href="/">Home</a></li>
+               <li><a href="/articles/">Articles</a></li>
+               <li><a href="/about/">About</a></li>
+               
+               <li><a href="/contacts/email">Contact Us</a></li>
+               <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
+               <li><form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                     {% csrf_token %}
+                     <button type="submit" class="right-side-buton">Logout</button>
+                  </form>
+               </li>
+               {% else %}
+               <li><a href="/">Home</a></li>
+               <li><a href="/about/">About</a></li>
+               <li><a href="/articles/">Articles</a></li>
+               <li><a href="{% url 'accounts:login' %}">Login</a></li>
+               <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+               <li><a href="/contacts/email">Contact Us</a></li>
+               {% endif %}
+            </ul>
+         </nav>
+      </header>
+      <div class="animatedBox">
+
+   		{% block content %}
+   		{% endblock %}
+   	</div>
+   </body>
+   <footer>
+      <div class="footer">
+         <p>copyright@ The Outworker 2018 - All Rights Reserved | Terms & Conditions | Privacy Policy</p>
+  <p>Created by: Amit Kumar</p>
+  <p>Contact information: <a href="mailto:info@theouworker.com">
+  info@theoutworker.com</a></p>
+</footer>
+
+
+</html>
